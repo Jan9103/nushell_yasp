@@ -3,8 +3,8 @@ export def dir [] {$'(ansi c)($env.YASP_DIR) '}
 
 # the current git branch
 export def git_branch [] {
-	let res = (^git branch --show-current | complete)
-	if $res.exit_code == 0 {$'(ansi lp)($res.stdout | str trim) '}
+	let res = (do -i { ^git branch --show-current | decode utf-8 })
+	if $res != '' {$'(ansi lp)($res | str trim) '}
 }
 
 # the last exit code (if it was != 0)
