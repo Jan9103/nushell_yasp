@@ -19,6 +19,7 @@ export-env {
 				(section dir)
 				(section git_branch)
 				(section nu_overlay)
+				(section pyvenv)
 			] | compact | str join '')
 			([
 				$'(ansi ligr)nu '

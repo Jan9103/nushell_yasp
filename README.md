@@ -6,12 +6,13 @@ I like starship, but wanted features like nu-overlay infos.
 
 ## Features
 
-- [x] directory
-	- [x] relative to home, git repo or root
-- [x] git branch
-- [x] last exit code
-- [x] nu overlay name
-	- [x] hide based on name
+- directory
+	- relative to home, git repo or root
+- git branch
+- last exit code
+- nu overlay name
+	- hide based on name
+- [python package](https://github.com/jan9103/nushell_python) pyvenv status
 
 ## Configuring it
 

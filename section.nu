@@ -19,3 +19,9 @@ export def nu_overlay [
 	let list = (overlay list | where not $it in $hide | str join ',')
 	if $list != '' {$'(ansi y)($list) '}
 }
+
+# show a icon if a pyvenv from the pyvenv package is active
+export def pyvenv [] {
+	if ($env | get -i PYTHON_VENVS.0) != null {return ' '}
+	''
+}
