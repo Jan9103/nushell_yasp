@@ -2,16 +2,18 @@ export-env {
 	use util.nu
 	use section.nu
 
-	let-env PROMPT_MULTILINE_INDICATOR = ''
-	let-env PROMPT_INDICATOR = ''
-	let-env PROMPT_COMMAND_RIGHT = {|| ''}
+	load-env {
+		PROMPT_MULTILINE_INDICATOR: ''
+		PROMPT_INDICATOR: ''
+		PROMPT_COMMAND_RIGHT: {|| ''}
+	}
 
 	#util update_dir
 	#nuconfig hook append env_change PWD {|old,new|
 	#	util update_dir
 	#}
 
-	let-env PROMPT_COMMAND = {||
+	load-env {PROMPT_COMMAND: {||
 		util update_dir  # until hooks are fixed..
 		[
 			' '  # empty line
@@ -26,5 +28,5 @@ export-env {
 				(section exit_code)
 			] | compact | str join '')
 		] | str join (char nl)
-	}
+	}}
 }
