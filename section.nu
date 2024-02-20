@@ -16,7 +16,7 @@ export def exit_code [] {
 export def nu_overlay [
 	hide = ['zero' 'packer_api' 'packer_packages' 'conditional_packages']  # a list of names to exclude
 ] {
-	let list = (overlay list | where not $it in $hide | str join ',')
+	let list = (overlay list | where not ($it in $hide) | str join ',')
 	if $list != '' {$'(ansi y)($list) '}
 }
 
